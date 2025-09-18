@@ -71,8 +71,10 @@ def extract_hog_features_to_csv(input_folder, output_file):
         hog_features = compute_hog_features(image_path)
         
         if hog_features is not None:
-            # Thêm tên ảnh, đặc trưng và nhãn vào danh sách kết quả (label sẽ ở cuối)
-            result = [image_name] + hog_features.tolist() + [label]
+            # Làm tròn các đặc trưng HOG về 4 chữ số thập phân
+            rounded_features = [round(float(x), 4) for x in hog_features]
+            # Thêm tên ảnh, đặc trưng đã làm tròn và nhãn vào danh sách kết quả
+            result = [image_name] + rounded_features + [label]
             results.append(result)
     
     # Tạo DataFrame từ kết quả
