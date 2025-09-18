@@ -1,16 +1,23 @@
 import cv2
 import os
+import glob
 
 # Thư mục chứa ảnh gốc và nơi lưu ảnh binary
-input_folder = './'    # nếu ảnh cùng folder với script
-output_folder = './binary_images/'
+input_folder = './images/original/'    # Thư mục chứa ảnh gốc
+output_folder = './images/binary/'     # Thư mục lưu ảnh binary
 
 # Tạo folder lưu nếu chưa có
 os.makedirs(output_folder, exist_ok=True)
 
-# Lặp qua 50 ảnh
-for i in range(1, 51):
-    input_path = os.path.join(input_folder, f'{i}.png')
+# Lấy danh sách tất cả các file ảnh trong thư mục input
+image_files = glob.glob(os.path.join(input_folder, '*.jpg'))
+
+# Sắp xếp để đảm bảo thứ tự
+image_files.sort()
+
+# Lặp qua tất cả các ảnh
+for i, input_path in enumerate(image_files, 1):
+    # Tạo tên file đầu ra
     output_path = os.path.join(output_folder, f'{i}BI.png')
     
     # Đọc ảnh

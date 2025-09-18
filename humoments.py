@@ -23,9 +23,12 @@ def compute_hu_moments(image_path):
     
     return hu_log
 
-# Thư mục chứa ảnh
-folder_path = "./binary_images"  # nếu ảnh nằm cùng folder với script
+# Thư mục chứa ảnh binary
+folder_path = "./images/binary"  # Thư mục chứa ảnh binary
 output_csv = "./data/hu_features.csv"
+
+# Tạo thư mục data nếu chưa tồn tại
+os.makedirs(os.path.dirname(output_csv), exist_ok=True)
 
 # Lưu kết quả
 with open(output_csv, mode='w', newline='') as f:
