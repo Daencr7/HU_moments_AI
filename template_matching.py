@@ -1,6 +1,7 @@
 import os
 import numpy as np  
 from sklearn.metrics import pairwise_distances
+import csv
 
 
 def split_data_test_and_train(input_file):
@@ -57,9 +58,9 @@ if __name__ == "__main__":
     output_folder = "./data/template_matching/"
 
     train_data, test_data = split_data_test_and_train(input_file)
+    test_data_raw = test_data.copy()
     print(f"Train data size: {len(train_data)}")
     print(f"Test data size: {len(test_data)}")
-    label_test = [row[-1] for row in test_data]
     label_train = [row[-1] for row in train_data]
     train_data = [row[1:] for row in train_data]
     test_data = [row[1:] for row in test_data]
@@ -88,9 +89,12 @@ if __name__ == "__main__":
     os.makedirs(output_folder, exist_ok=True)
     output_file = os.path.join(output_folder, "euclidean_results.csv")
     with open(output_file, 'w') as f:
-        f.write("Lable,PredictedLabel\n")
-        for lable_true, label_pred in zip(label_test,label_pred):
-            f.write(f"{lable_true},{label_pred}\n")
+        writer = csv.writer(f)
+        header = ["Image", "Hu1", "Hu2", "Hu3", "Hu4", "Hu5", "Hu6", "Hu7", "label","predict"]
+        writer.writerow(header)
+
+        for data, label_pred in zip(test_data_raw,label_pred):
+            f.write(f",".join(map(str, data)) + f"{label_pred}\n")
 
 
 
