@@ -38,15 +38,18 @@ with open(output_csv, mode='w', newline='') as f:
     writer.writerow(header)
 
     # Lặp qua 50 ảnh
+    
     for i in range(1, 51):
         image_name = f"{i}BI.png"
         image_path = os.path.join(folder_path, image_name)
+
+        label = (i - 1) // 5 + 1 
         try:
             hu_features = compute_hu_moments(image_path)
             # Ghi vào CSV
             # Làm tròn 2 số sau dấu phẩy
             rounded_features = [round(x, 4) for x in hu_features]
-            writer.writerow([image_name] + rounded_features)
+            writer.writerow([image_name] + rounded_features + [label])
             print(f"Đã xử lý: {image_name}")
         except Exception as e:
             print(f"Lỗi với {image_name}: {e}")
