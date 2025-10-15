@@ -1,0 +1,11 @@
+sepal length (cm),sepal width (cm),petal length (cm),petal width (cm),target,target_name
+7.4,2.8,6.1,1.9,2,virginica
+7.9,3.8,6.4,2.0,2,virginica
+6.4,2.8,5.6,2.2,2,virginica
+6.3,2.8,5.1,1.5,2,virginica
+6.1,2.6,5.6,1.4,2,virginica
+7.7,3.0,6.1,2.3,2,virginica
+6.3,3.4,5.6,2.4,2,virginica
+6.4,3.1,5.5,1.8,2,virginica
+6.0,3.0,4.8,1.8,2,virginica
+6.9,3.1,5.4,2.1,2,virginica

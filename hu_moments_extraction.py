@@ -3,6 +3,25 @@ import numpy as np
 import csv
 import os
 
+import pandas as pd
+from sklearn.datasets import load_iris
+
+# Thư mục muốn lưu
+save_dir = "data/iris"
+os.makedirs(save_dir, exist_ok=True)
+
+# Tải dữ liệu Iris từ sklearn
+iris = load_iris(as_frame=True)
+df = iris.frame  # chứa cả features + target
+
+# Lưu file CSV
+file_path = os.path.join(save_dir, "iris.csv")
+df.to_csv(file_path, index=False, encoding="utf-8")
+
+print(f"Dữ liệu Iris đã được lưu tại: {file_path}")
+
+
+
 def compute_hu_moments(image_path):
     """Tính 7 đặc trưng Hu từ ảnh binary trắng–đen."""
     img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)

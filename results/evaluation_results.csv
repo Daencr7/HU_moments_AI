@@ -1,0 +1,7 @@
+K,Type,Accuracy,Precision,Recall,F1-Score,ConfMatrix_File
+3,Hu Moments (Gốc),0.4,0.2571428571428571,0.4,0.28888888888888886,./results/confusion_matrices/K3_Hu_Goc.png
+3,Hu Moments (Log),0.6,0.5,0.6,0.5333333333333333,./results/confusion_matrices/K3_Hu_Log.png
+4,Hu Moments (Gốc),0.4,0.45,0.4,0.3466666666666667,./results/confusion_matrices/K4_Hu_Goc.png
+4,Hu Moments (Log),0.4,0.3,0.4,0.3333333333333333,./results/confusion_matrices/K4_Hu_Log.png
+5,Hu Moments (Gốc),0.4,0.45,0.4,0.3466666666666667,./results/confusion_matrices/K5_Hu_Goc.png
+5,Hu Moments (Log),0.4,0.4333333333333334,0.4,0.3833333333333333,./results/confusion_matrices/K5_Hu_Log.png
